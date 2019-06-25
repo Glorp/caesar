@@ -15,7 +15,8 @@ public final class Main {
         if (!file.exists() || file.isDirectory()) {
             throw new RuntimeException("Can't find file: " + options.getFilename());
         }
-        Crypto crypto = new Crypto(alphabet, options.getShift());
+        int shift = options.isDecrypt() ? -options.getShift() : options.getShift();
+        Crypto crypto = new Crypto(alphabet, shift);
 
         try (InputStream inputStream = new FileInputStream(file)) {
             Reader in = new InputStreamReader(inputStream, "UTF-8");
