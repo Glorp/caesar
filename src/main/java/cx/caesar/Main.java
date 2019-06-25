@@ -15,7 +15,6 @@ public final class Main {
         if (!file.exists() || file.isDirectory()) {
             throw new RuntimeException("Can't find file: " + options.getFilename());
         }
-        List.of(1, 2);
         Crypto crypto = new Crypto(alphabet, options.getShift());
 
         try (InputStream inputStream = new FileInputStream(file)) {
