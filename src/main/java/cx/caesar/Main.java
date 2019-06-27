@@ -20,7 +20,7 @@ public final class Main {
 
         try (InputStream inputStream = new FileInputStream(file)) {
             Reader in = new InputStreamReader(inputStream, "UTF-8");
-            Writer out= new OutputStreamWriter(System.out);
+            Writer out = new OutputStreamWriter(System.out);
             crypto.crypt(in, out);
 
         } catch (IOException e) {

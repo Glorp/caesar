@@ -9,7 +9,7 @@ public class CommandLine {
     public static CommandLineOptions parse(String[] args) {
         boolean decrypt = false;
 
-        if (args.length < 2) {
+        if (args.length == 2 || args.length == 3) {
             ohno();
         }
 
@@ -24,9 +24,6 @@ public class CommandLine {
                 ohno();
             }
         }
-
         return new CommandLineOptions(filename, shift, decrypt);
-
     }
-
 }

@@ -13,14 +13,17 @@ public final class Crypto {
     }
 
 
-    private static int modulo(int a, int b) {
-        return (Math.abs(a * b) + a) % b;
+    public static int modulo(int a, int b) {
+        long la = (long)a;
+        long lb = (long)b;
+        return (int) ((Math.abs(la * lb) + la) % lb);
     }
 
     public char shift(char c) {
 
         int original = alphabet.indexOf(c);
-        return  original == -1
+
+        return original == -1
                 ? c
                 : alphabet.charAt(modulo(original + offset, alphabet.length()));
     }
@@ -45,5 +48,4 @@ public final class Crypto {
         }
 
     }
-
 }
